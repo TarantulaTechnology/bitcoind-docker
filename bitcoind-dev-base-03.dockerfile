@@ -14,7 +14,7 @@ RUN cd /src \
 && make \
 && make install \
 
-# add mkdir and echor for conf
+# add mkdir and echo for conf
 && mkdir /root/.bitcoin \
 && touch /root/.bitcoin/bitcoin.conf \
 && echo "rpcuser=alicebob\nrpcpassword=alicebob" > /root/.bitcoin/bitcoin.conf 
