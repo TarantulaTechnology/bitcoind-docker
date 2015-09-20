@@ -39,8 +39,6 @@ Some example commands that can be executed after build and running two instances
 
 docker exec alice bitcoin-cli -regtest getinfo
 
-docker exec alice bitcoin-cli -regtest -help
-
 docker exec alice bitcoin-cli -regtest help
 
 docker exec alice bitcoin-cli -regtest getwalletinfo
@@ -49,11 +47,7 @@ docker exec alice bitcoin-cli -regtest settxfee 0.0000001
 
 docker exec alice bitcoin-cli -regtest getwalletinfo
 
-docker exec alice bitcoin-cli -regtest getinfo
-
 docker exec alice bitcoin-cli -regtest generate 25
-
-docker exec alice bitcoin-cli -regtest getinfo
 
 docker exec alice bitcoin-cli -regtest getmininginfo
 
