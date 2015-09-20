@@ -24,15 +24,15 @@ Connect to bob:
 eval $(docker-machine env bob)
 
 Some example commands that can be executed after build and running two instances, alice and bob:
-docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest getinfo
 docker exec alice bitcoin-cli -regtest -help
 docker exec alice bitcoin-cli -regtest help
 docker exec alice bitcoin-cli -regtest getwalletinfo
 docker exec alice bitcoin-cli -regtest settxfee 0.0000001
 docker exec alice bitcoin-cli -regtest getwalletinfo
-docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest getinfo
 docker exec alice bitcoin-cli -regtest generate 25
-docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest getinfo
 docker exec alice bitcoin-cli -regtest getmininginfo
 docker exec alice bitcoin-cli -regtest getconnectioncount
 docker exec alice bitcoin-cli -regtest getpeerinfo
