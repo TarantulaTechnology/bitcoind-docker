@@ -37,6 +37,39 @@ eval $(docker-machine env bob)
 
 Some example commands that can be executed after build and running two instances, alice and bob:
 
+From the Docker container:
+
+bitcoind -regtest -daemon -printtoconsole
+
+getinfo
+
+getpeerinfo
+
+addnode 172.17.0.2 onetry
+
+getpeerinfo
+
+setgenerate true 101
+
+getbalance
+
+getnewaddress
+
+sendtoaddress mm47sczsEDYAGF2fp7xHSRpWQzCvpE1eZt 42
+
+Bob’s getbalance command still shows 0
+
+setgenerate true 6
+
+Bob just received 6 blocks and his balance is now 42 bitcoins
+
+getbalance
+
+
+
+
+From a terminal:
+
 docker exec alice bitcoin-cli -regtest getinfo
 
 docker exec alice bitcoin-cli -regtest help
