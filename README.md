@@ -3,12 +3,39 @@ Build bitcoind on Ubuntu in Docker!
 
 Review the Makefile for commands.
 
-1,2,3 are dockerfiles for each step encapusulating 1)core dev requirements, 2) Berkely DB 4.8, 3) Bitcoin Core.
-final is just a wrapper on 3. 
+bitcoind-dev-base-01, 2, and 3 are dockerfiles for each step encapusulating 1) core dev requirements, 2) Berkely DB 4.8, 3) Bitcoin Core.
 
-You can run 1,2,3,and then use final or bitcoind which contains 1,2,3.
+bitcoind-dev-base-final is a wrapper on 3.
 
-I don't store the image because it is over 3 gig, I perfer to clone this and use the dockerfile(s) to build the image loacally. Once built it can be rerun as often as desired.
+You run bitcoind-dev-base-01, 2, 3, and then use final. 
+
+Or if want to build everything from one dockerfile then user ubuntu.bitcoind.dockerfile, which contains the commands from bitcoind-dev-base-01, 2, and 3.
+
+I don't store the built image because it is over 3 gig, I perfer to git clone this repo and use the dockerfiles to build the image locally. Once built bitcoind can be run as often as desired.
+
+Commands to create bob and alice VMs for Docker:
+docker-machine create --driver virtualbox alice
+docker-machine create --driver virtualbox bob
+
+Connect to alice:
+eval $(docker-machine env alice)
+
+Connect to bob:
+eval $(docker-machine env bob)
+
+Some example commands that can be executed after build and running two instances, alice and bob:
+docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest -help
+docker exec alice bitcoin-cli -regtest help
+docker exec alice bitcoin-cli -regtest getwalletinfo
+docker exec alice bitcoin-cli -regtest settxfee 0.0000001
+docker exec alice bitcoin-cli -regtest getwalletinfo
+docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest generate 25
+docker exec alice bitcoin-cli -regtest getinfo 
+docker exec alice bitcoin-cli -regtest getmininginfo
+docker exec alice bitcoin-cli -regtest getconnectioncount
+docker exec alice bitcoin-cli -regtest getpeerinfo
 
 Have fun!
 
