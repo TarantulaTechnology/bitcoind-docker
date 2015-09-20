@@ -24,6 +24,7 @@ the image locally. Once built bitcoind can be run as often as desired.
 Commands to create bob and alice VMs for Docker:
 
 docker-machine create --driver virtualbox alice
+
 docker-machine create --driver virtualbox bob
 
 Connect to alice:
