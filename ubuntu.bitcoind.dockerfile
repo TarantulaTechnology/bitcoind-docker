@@ -43,7 +43,7 @@ RUN mkdir -p src && cd src \
 && cd ../.. \
 && git clone https://github.com/bitcoin/bitcoin.git \
 && cd bitcoin \
-&& git checkout v0.11.0 \
+&& git checkout v0.11.2 \
 # Compile
 && ./autogen.sh \
 && ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS="-L${BDB_PREFIX}/lib/" \
